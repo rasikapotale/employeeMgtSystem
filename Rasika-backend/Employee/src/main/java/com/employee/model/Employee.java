@@ -1,0 +1,59 @@
+package com.employee.model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // Basic Info
+    private String fullName;
+    private String email;
+    private String phone;
+    private String gender;
+
+    private LocalDate dateOfBirth;
+
+    // Job Info
+    private String department;
+    private String jobTitle;
+    private LocalDate dateOfJoining;
+    private Double salary;
+    private String employmentType;
+
+    // Address Info
+    private String addressLine1;
+    private String addressLine2;
+    private String city;
+    private String state;
+    private String zipCode;
+
+    // Document Info
+    private String panNumber;
+    private String aadhaarNumber;
+
+    @Lob
+    @Column(name = "profile_photo", columnDefinition = "LONGBLOB")
+    private byte[] profilePhoto;
+
+    @Lob
+    @Column(name = "resume_file", columnDefinition = "LONGBLOB")
+    private byte[] resumeFile;
+}
