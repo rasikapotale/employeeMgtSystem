@@ -20,13 +20,13 @@ pipeline {
             }
         }
 
-        stage('Build Backend') {
-            steps {
-                dir("${env.BACKEND_DIR}") {
-                    echo "Building Spring Boot backend..."
-                    sh 'mvn clean package -DskipTests'
+        stage('Build Spring Boot backend') {
+           steps {
+               echo 'Building Spring Boot backend...'
+                   dir('Rasika-backend/Employee') {
+                  sh 'mvn clean package -DskipTests'
+                                                  }
                 }
-            }
         }
 
         stage('Build Frontend') {
