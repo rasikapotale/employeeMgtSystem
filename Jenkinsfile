@@ -32,6 +32,8 @@ pipeline {
         stage('Build React Frontend') {
     steps {
         dir('employee-management-frontend') {
+            sh 'ls -l'
+            sh 'ls -l src'
             echo 'Installing frontend dependencies...'
             sh 'npm install'
 
