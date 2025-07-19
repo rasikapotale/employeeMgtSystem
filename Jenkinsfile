@@ -7,15 +7,15 @@ pipeline {
     }
 
     environment {
-        BACKEND_DIR = 'backend'
-        FRONTEND_DIR = 'frontend'
+        BACKEND_DIR = 'Rasika-backend'
+        FRONTEND_DIR = 'employee-management-frontend'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                echo "Cloning source code..."
+                echo "https://github.com/rasikapotale/employeeMgtSystem.git"
                 checkout scm
             }
         }
