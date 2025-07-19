@@ -29,16 +29,17 @@ pipeline {
                 }
         }
 
-        stage('Build Frontend') {
-            steps {
-                dir("${env.FRONTEND_DIR}") {
-                    echo "Installing Angular dependencies..."
-                    sh 'npm install'
-                    echo "Building Angular frontend..."
-                    sh 'ng build --configuration production'
-                }
-            }
+        stage('Build React Frontend') {
+    steps {
+        dir('employee-management-frontend') {
+            echo 'Installing frontend dependencies...'
+            sh 'npm install'
+
+            echo 'Building React frontend...'
+            sh 'npm run build'
         }
+    }
+}
 
         stage('Docker Build & Push') {
             steps {
